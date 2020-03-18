@@ -283,18 +283,11 @@ class Graph:
             if self.canConnect(newVertex, totalvisited, Hamiltonian):
                 # if we can add the vertex into the walk
                 Hamiltonian.addVertex(newVertex)    # <- add it
-                # <- if the next vertex leads us to a solution return true
-                if self.tryVisiting(totalvisited + 1, Hamiltonian, False):
+                if self.tryVisiting(totalvisited + 1, Hamiltonian, False):  # <- if the next vertex leads us to a solution flag = true
                     flag = True
                     break
                 else:
                     flag = False
-                    # print(self.getMatrix()[
-                    #     Hamiltonian.getVertices()[-1]][Hamiltonian.getVertices()[0]])
-                    # print(totalvisited)
-                    # print(Hamiltonian)
-                    # print(len(Hamiltonian))
-                    # print("\n")
                     Hamiltonian.removeLastVertex()                          # <- if not remove it
         return flag
 
@@ -314,6 +307,3 @@ class Graph:
             return False
 
         return True
-
-    def checkAlmost(self, totalvisited, Hamiltonian):
-        return 1
